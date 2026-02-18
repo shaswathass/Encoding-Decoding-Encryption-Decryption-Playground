@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encoding & Encryption Playground</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+        <label class="switch">
+            <input type="checkbox" id="themeSwitch" onchange="toggleTheme()">
+            <span class="slider"></span>
+        </label>
+        <span id="themeLabel">Dark Mode</span>
+    </div>
+
+    <div class="card">
+        <h1>Encoding & Encryption Playground</h1>
+
+        <textarea id="inputText" placeholder="Enter text here..."></textarea>
+
+        <div class="buttons">
+            <button onclick="handleOperation('encode', this)">Base64 Encode</button>
+            <button onclick="handleOperation('decode', this)">Base64 Decode</button>
+            <button onclick="handleOperation('encrypt', this)">Caesar Encrypt</button>
+            <button onclick="handleOperation('decrypt', this)">Caesar Decrypt</button>
+        </div>
+
+        <p class="operation-text">
+            Selected Operation:
+            <span id="selectedOperation">None</span>
+        </p>
+
+        <textarea id="outputText" placeholder="Output will appear here..." readonly></textarea>
+<p id="decodeError" class="error-text"></p>
+
+    </div>
+
+    <!-- Key Modal -->
+    <div id="keyModal" class="modal">
+        <div class="modal-content">
+            <h3>Enter the key</h3>
+            <input type="number" id="modalKeyInput"  min="1" max="25">
+            <p id="modalError" class="modal-error"></p>
+            <div class="modal-buttons">
+                <button onclick="submitKey()">Submit</button>
+                <button onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
